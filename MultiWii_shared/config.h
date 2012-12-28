@@ -40,7 +40,7 @@
     //#define OCTOX8
     //#define OCTOFLATP
     //#define OCTOFLATX
-    //#define FLYING_WING
+    #define FLYING_WING
     //#define VTAIL4
     //#define AIRPLANE
     //#define SINGLECOPTER
@@ -55,7 +55,7 @@
     //#define MINTHROTTLE 1120 // for Super Simple ESCs 10A
     //#define MINTHROTTLE 1064 // special ESC (simonk)
     //#define MINTHROTTLE 1050 // for brushed ESCs like ladybird
-    #define MINTHROTTLE 1150 // (*)
+    #define MINTHROTTLE 980 // (*)
 
   /****************************    Motor maxthrottle    *******************************/
     /* this is the maximum value for the ESCs at full power, this value can be increased up to 2000 */
@@ -64,7 +64,7 @@
   /****************************    Mincommand          *******************************/
     /* this is the value for the ESCs when they are not armed
        in some cases, this value must be lowered down to 900 for some specific ESCs, otherwise they failed to initiate */
-    #define MINCOMMAND  1000
+    #define MINCOMMAND  979
 
   /**********************************    I2C speed   ************************************/
     #define I2C_SPEED 100000L     //100kHz normal mode, this value must be used for a genuine WMP
@@ -145,7 +145,7 @@
       /* leave it commented if you already checked a specific board above */
       /* I2C gyroscope */
       //#define WMP
-      //#define ITG3200
+      #define ITG3200
       //#define L3G4200D
       //#define MPU6050       //combo + ACC
 
@@ -153,19 +153,19 @@
       //#define NUNCHUCK  // if you want to use the nunckuk connected to a WMP
       //#define MMA7455
       //#define ADXL345
-      //#define BMA020
+      #define BMA020
       //#define BMA180
       //#define NUNCHACK  // if you want to use the nunckuk as a standalone I2C ACC without WMP
       //#define LIS3LV02
       //#define LSM303DLx_ACC
 
       /* I2C barometer */
-      //#define BMP085
+      #define BMP085
       //#define MS561101BA
 
       /* I2C magnetometer */
       //#define HMC5843
-      //#define HMC5883
+      #define HMC5883
       //#define AK8975
       //#define MAG3110
 
@@ -182,6 +182,9 @@
       //#define ACC_ORIENTATION(X, Y, Z)  {accADC[ROLL]  =  Y; accADC[PITCH]  = -X; accADC[YAW]  = Z;}
       //#define GYRO_ORIENTATION(X, Y, Z) {gyroADC[ROLL] = -Y; gyroADC[PITCH] =  X; gyroADC[YAW] = Z;}
       //#define MAG_ORIENTATION(X, Y, Z)  {magADC[ROLL]  =  X; magADC[PITCH]  =  Y; magADC[YAW]  = Z;}
+      #define ACC_ORIENTATION(X, Y, Z)  {accADC[ROLL]  =  -X; accADC[PITCH]  = -Y; accADC[YAW]  = Z;}
+      #define GYRO_ORIENTATION(X, Y, Z) {gyroADC[ROLL] = -X; gyroADC[PITCH] =  -Y; gyroADC[YAW] = Z;}
+      #define MAG_ORIENTATION(X, Y, Z)  {magADC[ROLL]  = -X; magADC[PITCH]  = -Y; magADC[YAW]  = Z;}
 
 /*************************************************************************************************/
 /*****************                                                                 ***************/
@@ -238,16 +241,17 @@
     #define CAM_TIME_HIGH 1000   // the duration of HIGH state servo expressed in ms
     #define CAM_TIME_LOW 1000    // the duration of LOW state servo expressed in ms
 
-  /***********************          Flying Wing                   ***********************/
+
+    /***********************          Flying Wing                   ***********************/
     /* you can change change servo orientation and servo min/max values here
        valid for all flight modes, even passThrough mode
        need to setup servo directions here; no need to swap servos amongst channels at rx */
-    #define PITCH_DIRECTION_L 1 // left servo - pitch orientation
-    #define PITCH_DIRECTION_R -1  // right servo - pitch orientation (opposite sign to PITCH_DIRECTION_L, if servos are mounted in mirrored orientation)
-    #define ROLL_DIRECTION_L 1 // left servo - roll orientation
-    #define ROLL_DIRECTION_R 1  // right servo - roll orientation  (same sign as ROLL_DIRECTION_L, if servos are mounted in mirrored orientation)
-    #define WING_LEFT_MID  1500 // (*) left servo center pos. - use this for initial trim; later trim midpoint via LCD
-    #define WING_RIGHT_MID 1500 // (*) right servo center pos. - use this for initial trim; later trim midpoint via LCD
+    #define PITCH_DIRECTION_L -1 // left servo - pitch orientation
+    #define PITCH_DIRECTION_R 1  // right servo - pitch orientation (opposite sign to PITCH_DIRECTION_L, if servos are mounted in mirrored orientation)
+    #define ROLL_DIRECTION_L -1 // left servo - roll orientation
+    #define ROLL_DIRECTION_R -1  // right servo - roll orientation  (same sign as ROLL_DIRECTION_L, if servos are mounted in mirrored orientation)
+    #define WING_LEFT_MID  1500 // left servo center pos. - use this for initial trim; later trim midpoint via LCD
+    #define WING_RIGHT_MID 1500 // right servo center pos. - use this for initial trim; later trim midpoint via LCD
     #define WING_LEFT_MIN  1020 // limit servo travel range must be inside [1020;2000]
     #define WING_LEFT_MAX  2000 // limit servo travel range must be inside [1020;2000]
     #define WING_RIGHT_MIN 1020 // limit servo travel range must be inside [1020;2000]
@@ -512,7 +516,7 @@
       /* GYRO_SMOOTHING. In case you cannot reduce vibrations _and_ _after_ you have tried the low pass filter options, you
          may try this gyro smoothing via averaging. Not suitable for multicopters!
          Good results for helicopter, airplanes and flying wings (foamies) with lots of vibrations.*/
-      //#define GYRO_SMOOTHING {20, 20, 3}    // (*) separate averaging ranges for roll, pitch, yaw
+      #define GYRO_SMOOTHING {20, 20, 3}    // (*) separate averaging ranges for roll, pitch, yaw
 
     /************************    Moving Average Gyros    **********************************/
       //#define MMGYRO 10                      // (*) Active Moving Average Function for Gyros
