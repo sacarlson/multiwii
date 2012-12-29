@@ -496,7 +496,9 @@
       //#define ITG3200_LPF_188HZ
       //#define ITG3200_LPF_98HZ
       //#define ITG3200_LPF_42HZ
-      //#define ITG3200_LPF_20HZ
+
+      // hamberger's value used for flying_wing mode 50cm wing
+      #define ITG3200_LPF_20HZ
       //#define ITG3200_LPF_10HZ      // Use this only in extreme cases, rather change motors and/or props
 
       /* MPU6050 Low pass filter setting. In case you cannot eliminate all vibrations to the Gyro, you can try
@@ -516,7 +518,8 @@
       /* GYRO_SMOOTHING. In case you cannot reduce vibrations _and_ _after_ you have tried the low pass filter options, you
          may try this gyro smoothing via averaging. Not suitable for multicopters!
          Good results for helicopter, airplanes and flying wings (foamies) with lots of vibrations.*/
-      #define GYRO_SMOOTHING {20, 20, 3}    // (*) separate averaging ranges for roll, pitch, yaw
+      // Hamberger's gyro_smoothing values used by in flying wing mode for 50cm wing span wing
+      #define GYRO_SMOOTHING {40, 40, 1}    // (*) separate averaging ranges for roll, pitch, yaw
 
     /************************    Moving Average Gyros    **********************************/
       //#define MMGYRO 10                      // (*) Active Moving Average Function for Gyros

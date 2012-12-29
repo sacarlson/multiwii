@@ -101,8 +101,13 @@ void writeParams(uint8_t b) {
 }
 
 void LoadDefaults() {
-  conf.P8[ROLL]  = 40;  conf.I8[ROLL] = 30; conf.D8[ROLL]  = 23;
-  conf.P8[PITCH] = 40; conf.I8[PITCH] = 30; conf.D8[PITCH] = 23;
+  //conf.P8[ROLL]  = 40;  conf.I8[ROLL] = 30; conf.D8[ROLL]  = 23;
+  //conf.P8[PITCH] = 40; conf.I8[PITCH] = 30; conf.D8[PITCH] = 23;
+
+  // Hamberger's default roll and pitch PID values for flying_wing mode on 50cm flying wing
+  conf.P8[ROLL]  = 30;  conf.I8[ROLL] = 10; conf.D8[ROLL]  = 15;
+  conf.P8[PITCH] = 30; conf.I8[PITCH] = 10; conf.D8[PITCH] = 15;
+
   conf.P8[YAW]   = 85;  conf.I8[YAW]  = 45;  conf.D8[YAW]  = 0;
   conf.P8[PIDALT]   = 50; conf.I8[PIDALT]   = 20; conf.D8[PIDALT]   = 30;
   
