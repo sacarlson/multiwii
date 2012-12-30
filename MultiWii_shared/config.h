@@ -153,8 +153,8 @@
       //#define NUNCHUCK  // if you want to use the nunckuk connected to a WMP
       //#define MMA7455
       //#define ADXL345
-      #define BMA020
-      //#define BMA180
+      //#define BMA020
+      #define BMA180
       //#define NUNCHACK  // if you want to use the nunckuk as a standalone I2C ACC without WMP
       //#define LIS3LV02
       //#define LSM303DLx_ACC
