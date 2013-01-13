@@ -182,9 +182,15 @@
       //#define ACC_ORIENTATION(X, Y, Z)  {accADC[ROLL]  =  Y; accADC[PITCH]  = -X; accADC[YAW]  = Z;}
       //#define GYRO_ORIENTATION(X, Y, Z) {gyroADC[ROLL] = -Y; gyroADC[PITCH] =  X; gyroADC[YAW] = Z;}
       //#define MAG_ORIENTATION(X, Y, Z)  {magADC[ROLL]  =  X; magADC[PITCH]  =  Y; magADC[YAW]  = Z;}
-      #define ACC_ORIENTATION(X, Y, Z)  {accADC[ROLL]  =  -X; accADC[PITCH]  = -Y; accADC[YAW]  = Z;}
-      #define GYRO_ORIENTATION(X, Y, Z) {gyroADC[ROLL] = -X; gyroADC[PITCH] =  -Y; gyroADC[YAW] = Z;}
-      #define MAG_ORIENTATION(X, Y, Z)  {magADC[ROLL]  = -X; magADC[PITCH]  = -Y; magADC[YAW]  = Z;}
+
+      //#define ACC_ORIENTATION(X, Y, Z)  {accADC[ROLL]  =  -X; accADC[PITCH]  = -Y; accADC[YAW]  = Z;}
+      //#define GYRO_ORIENTATION(X, Y, Z) {gyroADC[ROLL] = -X; gyroADC[PITCH] =  -Y; gyroADC[YAW] = Z;}
+      //#define MAG_ORIENTATION(X, Y, Z)  {magADC[ROLL]  = -X; magADC[PITCH]  = -Y; magADC[YAW]  = Z;}
+
+      //HK multiwii pro with USB connector pointing to rear of aircraft (not sure about mag settings)
+      #define ACC_ORIENTATION(X, Y, Z)  {accADC[ROLL]  =  Y; accADC[PITCH]  = -X; accADC[YAW]  = Z;}
+      #define GYRO_ORIENTATION(X, Y, Z) {gyroADC[ROLL] = X; gyroADC[PITCH] =  Y; gyroADC[YAW] = Z;}
+      #define MAG_ORIENTATION(X, Y, Z)  {magADC[ROLL]  = X; magADC[PITCH]  = Z; magADC[YAW]  = Y;}
 
 /*************************************************************************************************/
 /*****************                                                                 ***************/
@@ -518,7 +524,7 @@
       /* GYRO_SMOOTHING. In case you cannot reduce vibrations _and_ _after_ you have tried the low pass filter options, you
          may try this gyro smoothing via averaging. Not suitable for multicopters!
          Good results for helicopter, airplanes and flying wings (foamies) with lots of vibrations.*/
-      // Hamberger's gyro_smoothing values used by in flying wing mode for 50cm wing span wing
+      // Hamberger's gyro_smoothing values used in flying wing mode for 50cm wing span wing
       #define GYRO_SMOOTHING {40, 40, 1}    // (*) separate averaging ranges for roll, pitch, yaw
 
     /************************    Moving Average Gyros    **********************************/
